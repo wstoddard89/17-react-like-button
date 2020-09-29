@@ -2,20 +2,24 @@ import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-let numOfLikes = 0; // Start with 0 likes on button
 
+// Start with 0 likes on button
+let numOfLikes = 0; 
 
-const likes = ["likes", "like"] // Array to use in if statement for whether to show single or plural likes
+// Array to use in if statement for whether to show single or plural likes
+const likes = ["likes", "like"] 
 
+// useState that uses "addLike" function
 function App() {
-  const [numOfLike, addLike] = useState(true) // useState
+  const [numOfLike, addLike] = useState(true) 
 
-
-  function handleClick() { // Function to increment like on each click
+// Function to increment like on each click
+  function handleClick() { 
   addLike(numOfLikes++)
 }
 
-function pluralLikes(item) { // If statement to that shows "like" if only one like, and "likes" if zero or plural
+// If statement to that shows "like" if only one like, and "likes" if zero or plural
+function pluralLikes(item) { 
   if (numOfLikes === 1) {
     return (item = item[1])
   } else {
@@ -23,7 +27,9 @@ function pluralLikes(item) { // If statement to that shows "like" if only one li
   }
 }
 
-
+// Returns button that starts with zero "numOfLikes", as well as "pluralLikes" set to "likes"
+// Uses "handleClick" on each click to increment "numOfLikes"
+// "pluralLikes" will then switch from "likes" at zero, to "like" at one, and back to "likes" at two or greater clicks
   return (
     <div>
   <button className="likeButton" onClick={handleClick}>
